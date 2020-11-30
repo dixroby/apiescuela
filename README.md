@@ -3,12 +3,16 @@
 
 ## GET and POST
 > http://localhost:8000/estudiantes/
+
 > http://localhost:8000/materias/
+
 > http://localhost:8000/profesores/
 
 ## GET, PUT and DELETE
 
 
 > estudiantes/id
+
 > materias/id
+
 > profesores/id
