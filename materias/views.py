@@ -14,11 +14,13 @@ from rest_framework.views import APIView
 class Materias(generics.ListCreateAPIView):
    queryset = Materia.objects.all()
    serializer_class = MateriaSerializer
-       
-class Curse(APIView):
+
+class Curse(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Materia.objects.all()
+    serializer_class = MateriaSerializer
     """ this is comentary """
    
-    def get(self, request,id):
+"""     def get(self, request,id):
         materia_obj = Materia.objects.get(id = id)
         serialized = MateriaSerializer(materia_obj)
         return Response(status = status.HTTP_200_OK,data= serialized.data ) 
@@ -27,10 +29,9 @@ class Curse(APIView):
         materia_obj = Materia.objects.get(id = id)
         serialized = MateriaSerializer(instance = materia_obj,data=request.data,partial = True)
         
-        """ serialized['tres'] = "actualizado" """
         if serialized.is_valid():
-            serialized.save()
-            return Response(status = status.HTTP_200_OK,data= serialized.data)
+            serialized.save()            
+            return Response(status = status.HTTP_200_OK,data= {"mensaje": "actualizado", **serialized.data})
         else :
             return Response(status = status.HTTP_400_BAD_REQUEST,data = serialized.errors)
         
@@ -40,4 +41,4 @@ class Curse(APIView):
         messaje = {
             "mensaje":"Estudiante "+materia_obj.nombre +" Eliminado"
         }
-        return Response(status = status.HTTP_204_NO_CONTENT,data=messaje.data)
+        return Response(status = status.HTTP_204_NO_CONTENT,data=messaje.data) """

@@ -25,7 +25,7 @@ class Teacher(APIView):
         profe_obj = Profesor.objects.get(id = id)
         serialized = ProfesorSerializer(instance = profe_obj,data=request.data,partial = True)
         messaje = {
-            "mensaje":"Estudiante "+profe_obj.nombre +" Eliminado"
+            "mensaje":"Estudiante "+profe_obj.nombre +" Actualizado"
         }
         if serialized.is_valid():
             serialized.save()

@@ -26,7 +26,7 @@ class Student(APIView):
         estudiante_bjto = Estudiante.objects.get(id = id)
         serialized = EstudianteSerializer(instance = estudiante_bjto,data=request.data,partial = True)
         messaje = {
-            "mensaje":"Estudiante "+estudiante_bjto.nombre +" Eliminado"
+            "mensaje":"Estudiante "+estudiante_bjto.nombre +" Actualizado"
         }
         if serialized.is_valid():
             serialized.save()
@@ -41,6 +41,3 @@ class Student(APIView):
             "mensaje":"Estudiante "+estudiante_bjto.nombre+estudiante_bjto.apellidos +" Eliminado"
         }
         return Response(status = status.HTTP_204_NO_CONTENT,data=messaje)
-    
-
-    
