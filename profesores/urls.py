@@ -3,5 +3,5 @@ from .views import Profesores,Teacher
 
 urlpatterns = [
     path('', Profesores.as_view()),
-    path('<int:id>', Teacher.as_view()),
+    path('<int:pk>', Teacher.as_view()),
 ]
