@@ -1,8 +1,9 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 import uuid
 
 class Estudiante(models.Model):
-    id = models.UUIDField(default = uuid.uuid4,primary_key=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     nombre = models.CharField(max_length=200)
     apellidos = models.CharField(max_length=200)
     documento = models.CharField(max_length=8)
