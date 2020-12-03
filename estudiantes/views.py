@@ -36,7 +36,7 @@ class StudentViewSet(viewsets.ModelViewSet):
       serializer = MateriaSerializer(estudiante.materia, many=True)
       return Response(status=status.HTTP_200_OK, data=serializer.data)
 
-   @action(methods=['POST'], detail=True)
+   @action(methods=['GET'], detail=True)
    def eliminar(self, request, pk=None):
       estudiante = self.get_object()
       estudiante.activo = not estudiante.activo

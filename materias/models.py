@@ -7,7 +7,7 @@ class Materia(models.Model):
     description = models.CharField(max_length=200)
 
     profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
-    estudiante = models.ManyToManyField(Estudiante, related_name = 'estudiante') 
+    estudiante = models.ManyToManyField(Estudiante, related_name = 'materias') 
 
     
     def __str__(self):
