@@ -2,6 +2,7 @@ from rest_framework import status, generics
 from .models import Estudiante
 from .serializers import EstudianteSerializer
 from rest_framework.views import APIView
+from rest_framework import viewsets
 
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
@@ -13,5 +14,11 @@ class Estudiantes(generics.ListCreateAPIView):
        
 
 class Student(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Estudiante.objects.all()
-    serializer_class = EstudianteSerializer
+   queryset = Estudiante.objects.all()
+   serializer_class = EstudianteSerializer
+
+
+class StudentViewSet(viewsets.ModelViewSet):
+   queryset = Estudiante.objects.all()
+   serializer_class = EstudianteSerializer
+   permission_classes = (AllowAny, )
